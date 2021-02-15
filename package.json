@@ -1,6 +1,6 @@
 {
-  "name": "copay",
-  "description": "A Secure Bitcoin Wallet",
+  "name": "moresats",
+  "description": "Pravidelné úspory v Bitcoinu",
   "author": "BitPay",
   "version": "12.1.0",
   "keywords": [
@@ -12,7 +12,7 @@
     "bitcore"
   ],
   "main": "electron/main.js",
-  "title": "Copay",
+  "title": "MoreSats",
   "user-agent": "%name %ver (%osinfo)",
   "webkit": {
     "page-cache": false,
@@ -21,14 +21,14 @@
   },
   "dom_storage_quota": 200,
   "id": "jid1-x7bV5evAaI1P9Q",
-  "homepage": "https://copay.io",
+  "homepage": "https://moresats.cz",
   "license": "MIT",
   "repository": {
-    "url": "git://github.com/bitpay/copay.git",
+    "url": "git://github.com/moresats/wallet.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/bitpay/copay/issues"
+    "url": "https://github.com/moresats/wallet/issues"
   },
   "scripts": {
     "postinstall": "npm run env:dev && npm run prompt && npm run patch:bwc && npm run patch:walletconnect",
@@ -82,6 +82,8 @@
     "apply:copay": "cd app-template && node apply.js copay",
     "apply:bitpay": "cd app-template && node apply.js bitpay",
     "apply:bitpay-dev": "cd app-template && NODE_ENV=dev node apply.js bitpay",
+    "apply:moresats": "cd app-template && node apply.js moresats",
+    "apply:moresats-dev": "cd app-template && NODE_ENV=dev node apply.js moresats",
     "fix:fcm": "echo platforms/ios/Copay/Resources platforms/ios/Copay/Resources/Resources platforms/ios/Bitpay/Resources platforms/ios/Bitpay/Resources/Resources | xargs -n 1 cp GoogleService-Info.plist 2>/dev/null; mkdir -p platforms/android/app/src/debug platforms/android/app/src/release; echo platforms/android/app/src/debug platforms/android/app/src/release platforms/android/app | xargs -n 1 cp google-services.json",
     "sign:copay-desktop": "npm run sign:copay-linux && npm run sign:copay-windows && npm run sign:copay-macos",
     "sign:copay-macos": "gpg -u 1112CFA1 --output dist/Copay.dmg.sig --detach-sig dist/Copay.dmg",
@@ -250,7 +252,7 @@
       "cordova-custom-config": {},
       "cordova-plugin-customurlscheme-ng": {
         "URL_SCHEME": "bitcoin",
-        "SECOND_URL_SCHEME": "copay",
+        "SECOND_URL_SCHEME": "moresats",
         "THIRD_URL_SCHEME": "bitcoincash",
         "FOURTH_URL_SCHEME": "bchtest",
         "FIFTH_URL_SCHEME": "ethereum",
@@ -261,7 +263,7 @@
         "ANDROID_PATHPREFIX": ""
       },
       "cordova-plugin-fcm-ng": {
-        "PAGE_LINK_DOMAIN": "copay.page.link"
+        "PAGE_LINK_DOMAIN": "moresatsapp.page.link"
       },
       "cordova-plugin-globalization": {},
       "cordova-plugin-inappbrowser": {},
