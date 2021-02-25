@@ -3,7 +3,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { Events, ModalController, NavController, Slides } from 'ionic-angular';
 import * as _ from 'lodash';
 import * as moment from 'moment';
-import { FormatCurrencyPipe } from '../../pipes/format-currency';
 
 // Providers
 import {
@@ -27,10 +26,6 @@ import {
 import { ActionSheetProvider } from '../../providers/action-sheet/action-sheet';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { ConfigProvider } from '../../providers/config/config';
-import {
-  hasPromotion,
-  hasVisibleDiscount
-} from '../../providers/gift-card/gift-card';
 import { CardConfig } from '../../providers/gift-card/gift-card.types';
 
 // Pages
@@ -41,7 +36,6 @@ import { CoinbasePage } from '../integrations/coinbase/coinbase';
 import { BuyCardPage } from '../integrations/gift-cards/buy-card/buy-card';
 import { CardCatalogPage } from '../integrations/gift-cards/card-catalog/card-catalog';
 import { NewFeaturePage } from '../new-feature/new-feature';
-import { AddFundsPage } from '../onboarding/add-funds/add-funds';
 import { AmountPage } from '../send/amount/amount';
 import { AltCurrencyPage } from '../settings/alt-currency/alt-currency';
 
@@ -105,7 +99,6 @@ export class HomePage {
     private analyticsProvider: AnalyticsProvider,
     private appProvider: AppProvider,
     private externalLinkProvider: ExternalLinkProvider,
-    private formatCurrencyPipe: FormatCurrencyPipe,
     private navCtrl: NavController,
     private giftCardProvider: GiftCardProvider,
     private merchantProvider: MerchantProvider,
@@ -193,21 +186,11 @@ export class HomePage {
     if (this.platformProvider.isElectron) this.checkNewRelease();
     this.showCoinbase = !!config.showIntegration['coinbase'];
     this.setIntegrations();
-    this.loadAds();
-    this.fetchAdvertisements();
-    this.fetchGiftCardAdvertisement();
     this.persistenceProvider.getDynamicLink().then((deepLink: string) => {
       if (deepLink) {
         this.persistenceProvider.setOnboardingFlowFlag('disabled');
         this.persistenceProvider.removeDynamicLink();
         this.dynamicLinkProvider.processDeepLink(deepLink);
-      } else {
-        this.persistenceProvider
-          .getOnboardingFlowFlag()
-          .then((value: string) => {
-            if (value === 'enabled' && this.appProvider.info.name !== 'copay')
-              this.openAddFunds();
-          });
       }
     });
   }
@@ -560,69 +543,6 @@ export class HomePage {
       });
   }
 
-  private addGiftCardDiscount(discountedCard: CardConfig) {
-    const discount = discountedCard.discounts[0];
-    const discountText =
-      discount.type === 'flatrate'
-        ? `${this.formatCurrencyPipe.transform(
-            discount.amount,
-            discountedCard.currency,
-            'minimal'
-          )}`
-        : `${discount.amount}%`;
-    const advertisementName = getGiftCardAdvertisementName(discountedCard);
-    const alreadyVisible = this.advertisements.find(
-      a => a.name === advertisementName
-    );
-    !alreadyVisible &&
-      this.advertisements.unshift({
-        name: advertisementName,
-        title: `${discountText} off ${discountedCard.displayName}`,
-        body: `Save ${discountText} off ${discountedCard.displayName} gift cards. Limited time offer.`,
-        app: 'bitpay',
-        linkText: 'Buy Now',
-        link: BuyCardPage,
-        linkParams: { cardConfig: discountedCard },
-        isTesting: false,
-        dismissible: true,
-        imgSrc: discountedCard.icon
-      });
-  }
-
-  private addGiftCardPromotion(promotedCard: CardConfig) {
-    const promo = promotedCard.promotions[0];
-    const advertisementName = promo.shortDescription;
-    const alreadyVisible = this.advertisements.find(
-      a => a.name === advertisementName
-    );
-    !alreadyVisible &&
-      this.advertisements.unshift({
-        name: advertisementName,
-        title: promo.title,
-        body: promo.description,
-        app: 'bitpay',
-        linkText: promo.cta || 'Buy Now',
-        link: BuyCardPage,
-        linkParams: { cardConfig: promotedCard },
-        isTesting: false,
-        dismissible: true,
-        imgSrc: promo.icon
-      });
-  }
-
-  private async fetchGiftCardAdvertisement() {
-    const availableCards = await this.giftCardProvider.getAvailableCards();
-    const discountedCard = availableCards.find(cardConfig =>
-      hasVisibleDiscount(cardConfig)
-    );
-    const promotedCard = availableCards.find(card => hasPromotion(card));
-    if (discountedCard) {
-      this.addGiftCardDiscount(discountedCard);
-    } else if (promotedCard) {
-      this.addGiftCardPromotion(promotedCard);
-    }
-  }
-
   slideChanged() {
     const slideIndex = this.slides && this.slides.getActiveIndex();
     const activeAd = this.advertisements[slideIndex] || { linkParams: {} };
@@ -849,16 +769,6 @@ export class HomePage {
     }
   }
 
-  private openAddFunds(): void {
-    const wallets = this.profileProvider.getWallets();
-    const modal = this.modalCtrl.create(AddFundsPage, {
-      keyId: wallets[0].credentials.keyId
-    });
-    modal.present().then(() => {
-      this.persistenceProvider.setOnboardingFlowFlag('disabled');
-    });
-  }
-
   private showInfoSheet(params): void {
     const infoSheet = this.actionSheetProvider.createInfoSheet(
       'unsupported-alt-currency',
@@ -907,8 +817,4 @@ export class HomePage {
       }
     }, 2000);
   }
-}
-
-function getGiftCardAdvertisementName(discountedCard: CardConfig): string {
-  return `${discountedCard.discounts[0].code}-${discountedCard.name}-gift-card-discount`;
 }

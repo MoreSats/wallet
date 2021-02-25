@@ -7,6 +7,15 @@ msgstr "Zpět"
 msgid "Cancel"
 msgstr "Zrušit"
 
+msgid "I'm sure"
+msgstr "Beru na vědomí"
+
+msgid "I'M SURE"
+msgstr "BERU NA VĚDOMÍ"
+
+msgid "GO BACK"
+msgstr "ZPĚT"
+
 msgid "Help and support information is available at the website."
 msgstr "Nápověda a podpora je dostupná na našich stránkách."
 
@@ -38,7 +47,7 @@ msgid "Do you want to reset all settings to default value?"
 msgstr "Opravdu chcete vrátit všechny nastavení do výchozího stavu?"
 
 msgid "Wallets"
-msgstr "Peněženky"
+msgstr "Peněženka"
 
 msgid "Needs Backup"
 msgstr "Chybí záloha"
@@ -83,7 +92,7 @@ msgid "Address Book"
 msgstr "Adresář"
 
 msgid "Crypto Wallets & Keys"
-msgstr "Peneženky & Klíče"
+msgstr "Peněženky & Klíče"
 
 msgid "Notifications"
 msgstr "Notifikace"
@@ -114,3 +123,66 @@ msgstr "Podle systému"
 
 msgid "Light Mode"
 msgstr "Světlý"
+
+msgid "Add Encryption"
+msgstr "Zapnout šifrování"
+
+msgid "Add Encryption?"
+msgstr "Zapnout šifrování?"
+
+msgid "An encrypted passphrase is an extra layer of security that can prevent hackers from accessing your cryptocurrency if this device were ever stolen or compromised by malicious software."
+msgstr "Šifrováním vašeho klíče heslem zabráníte případnému zneužití pokud by toto zařízení bylo ukradnuto nebo zamořeno virem."
+
+msgid "Yes"
+msgstr "Ano"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "Creating Wallet..."
+msgstr "Generování peněženky..."
+
+msgid "Continue"
+msgstr "Pokračovat"
+
+msgid "Never mind"
+msgstr "Možná později"
+
+msgid "Passphrase"
+msgstr "Heslo"
+
+msgid "Confirm Passphrase"
+msgstr "Ověřit heslo"
+
+msgid "Enter an alphanumeric passphrase to encrypt your wallet"
+msgstr "Zadejte bezpečné heslo kterým zašifrujete vaši peněženku na tomto zařízení."
+
+msgid "How to recover your funds if you lose this device?"
+msgstr "Jak se dostanu k peněžence pokud ztratím toto zařízení?"
+
+msgid ""
+"If you delete the BitPay app or lose this device, you’ll need a recovery key "
+"to regain access to your funds."
+msgstr ""
+"Potřebujete záložní klíč aby jste získali přístup k peněžence, pokud ztratíte toto zařízení nebo odinstalujete aplikaci."
+
+msgid "View my recovery key"
+msgstr "Zálohovat klíč"
+
+msgid "I’ll do this later"
+msgstr "Později"
+
+msgid "Enter encrypt password"
+msgstr "Zadejte šifrovací heslo"
+
+msgid "Are you sure?"
+msgstr "Jste si jistí?"
+
+msgid ""
+"Without encrypting your wallet, a thief or another app on this device could "
+"potentially access your money."
+msgstr ""
+"Bez šifrované peněženky, zloděj nebo případně i jiná aplikace na tomto zařízení by mohla získat přístup k vaším penězům."
+
+msgid "Receiving funds will be temporarily disabled until you can verify your key has been stored away securely. You can always complete this later."
+msgstr "Přijímání prostředů bude povoleno až bude klíč bezpečně zálohován. Zálohu můžete vytvořit kdykoli."

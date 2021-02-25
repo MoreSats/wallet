@@ -163,8 +163,8 @@ export class ConfigProvider {
           unitToSatoshi: 100000000,
           unitDecimals: 8,
           unitCode: 'btc',
-          alternativeName: 'US Dollar',
-          alternativeIsoCode: 'USD',
+          alternativeName: 'Euro',
+          alternativeIsoCode: 'EUR',
           defaultLanguage: '',
           feeLevel: 'normal'
         }
