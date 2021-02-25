@@ -1,4 +1,4 @@
-<wide-header-page title="{{ 'Two things you should know' | translate }}" hideBackButton="true">
+<wide-header-page title="{{ 'Měli by jste vzít na vědomí' | translate }}" hideBackButton="true">
   <div page-content class="disclaimer-wrapper">
     <ion-list class="checkbox-list" no-lines>
       <div class="term-container" (click)="acceptTerm('first')">
@@ -6,10 +6,10 @@
           <ion-checkbox [(ngModel)]="accepted.first"></ion-checkbox>
         </ion-item>
         <div class="term-title">
-          {{'Your funds are in your custody' | translate}}
+          {{'Vaše pěníze držíte přímo Vy' | translate}}
         </div>
         <div class="term-note">
-          {{'I understand that my funds are held and controlled securely on this device, not by a company.' | translate}}
+          {{'Jsem srozuměn s tím, že moje peníze jsou drženy bezpečně v tomto zařízení, ne společností MoreSats.' | translate}}
         </div>
       </div>
       <div class="term-container" (click)="acceptTerm('second')" *ngIf="accepted.first">
@@ -17,10 +17,10 @@
           <ion-checkbox [(ngModel)]="accepted.second"></ion-checkbox>
         </ion-item>
         <div class="term-title">
-          {{'{appName} cannot recover your funds for you if you lose your recovery key' | translate:{appName: appName} }}
+          {{'{appName} nemůže obnovit přístup k penězům pokud ztratíte záložní klíč' | translate:{appName: appName} }}
         </div>
         <div class="term-note">
-          {{'I understand that if this app is moved to another device or deleted, my crypto funds can only be recovered with my recovery phrase.' | translate}}
+          {{'Jsem srozuměn s tím, že pokud tato aplikace je přesunuta do jiného zařízení nebo smazána, peněženka lze obnovit pouze pomocí záložního klíče.' | translate}}
         </div>
       </div>
     </ion-list>
@@ -32,15 +32,15 @@
           <ion-checkbox [(ngModel)]="terms.accepted"></ion-checkbox>
         </ion-item>
         <div class="term-note">
-          {{'I have read, understood, and agree with the Terms of Use.' | translate}}
+          {{'Jsem seznámen a souhlasím se všeobecnými obchodními podmínkami.' | translate}}
         </div>
       </div>
     </ion-list>
     <button ion-button clear color="primary" class="button-standard no-margin-bottom" (click)="openDisclaimer()">
-      {{'View complete Terms of Use' | translate}}
+      {{'Všeobecné obchodní podmínky' | translate}}
     </button>
     <button ion-button class="button-standard" (click)="confirm()" [disabled]="!accepted.first || !accepted.second || !terms.accepted">
-      {{'Confirm & Finish' | translate}}
+      {{'Potvrzuji' | translate}}
     </button>
   </div>
 </wide-header-page>

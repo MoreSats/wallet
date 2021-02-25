@@ -2,7 +2,7 @@
   <ion-navbar>
     <ion-title>
       <div [reveal-at-scroll-pos]="expandableHeader.headerHeight" [scrollArea]="scrollArea">
-        {{ 'Home' | translate }}
+        {{ 'MoreSats' | translate }}
       </div>
     </ion-title>
   </ion-navbar>
@@ -14,7 +14,7 @@
   <expandable-header [scrollArea]="scrollArea" [fadeFactor]="5" [disableFade]="true" #expandableHeader>
     <ion-toolbar class="wide-header__title" (click)="enableBitPayIdPairing()" tappable>
       <expandable-header-primary>
-        {{ 'Home' | translate }}
+        {{ 'MoreSats' | translate }}
       </expandable-header-primary>
     </ion-toolbar>
   </expandable-header>
@@ -97,7 +97,7 @@
   <page-feedback-card #showCard></page-feedback-card>
 
   <div *ngIf="showTotalBalance" class="total-amount-container">
-    <div class="section-header" translate>Total cash value</div>
+    <div class="section-header" translate>Máte nastackováno</div>
     <div class="total-amount-value">
       <span *ngIf="totalBalanceAlternative">
         {{totalBalanceAlternative | number:'1.2-2'}} {{totalBalanceAlternativeIsoCode}}
@@ -110,7 +110,7 @@
       <div *ngIf="totalBalanceChange || totalBalanceChange === 0" [ngClass]="totalBalanceChange >= 0 ? 'possitive-avg' : 'negative-avg'">
         <span class="average"><span *ngIf="totalBalanceChange > 0">+</span>{{ totalBalanceChange | number: '1.2-2' }}%</span>
       </div>
-      <span *ngIf="totalBalanceChange || totalBalanceChange === 0" class="date" translate>Last day</span>
+      <span *ngIf="totalBalanceChange || totalBalanceChange === 0" class="date" translate>Dnes</span>
     </div>
   </div>
 
@@ -206,7 +206,7 @@
   </ion-slides>
 
   <div class="section-header">
-    <div translate>Exchange Rates</div>
+    <div translate>Aktuální kurz</div>
     <div translate class="date-label">1D</div>
   </div>
   <exchange-rates #exchangeRates></exchange-rates>

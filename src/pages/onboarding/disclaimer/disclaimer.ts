@@ -57,12 +57,12 @@ export class DisclaimerPage {
   }
 
   openDisclaimer() {
-    let url = 'https://bitpay.com/legal/terms-of-use/#wallet-terms-of-use';
+    let url = 'https://moresats.cz/vop.html';
     let optIn = true;
     let title = null;
-    let message = this.translate.instant('View Wallet Terms of Use');
-    let okText = this.translate.instant('Open');
-    let cancelText = this.translate.instant('Go Back');
+    let message = this.translate.instant('Otevřít všeobecné obchodní podmínky MoreSats');
+    let okText = this.translate.instant('Otevřít');
+    let cancelText = this.translate.instant('Zpět');
     this.externalLinkProvider.open(
       url,
       optIn,
