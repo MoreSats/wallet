@@ -25,6 +25,7 @@ export class AltCurrencyPage {
   public loading;
   public currentCurrency;
   public lastUsedAltCurrencyList;
+  public defaultCurrencyList;
 
   private PAGE_COUNTER: number = 3;
   private SHOW_LIMIT: number = 10;
@@ -42,6 +43,20 @@ export class AltCurrencyPage {
   ) {
     this.completeAlternativeList = [];
     this.altCurrencyList = [];
+    this.defaultCurrencyList = [
+      {
+        isoCode: 'CZK',
+        name: 'Česká koruna'
+      },
+      {
+        isoCode: 'EUR',
+        name: 'Euro'
+      },
+      {
+        isoCode: 'USD',
+        name: 'US Dollar'
+      },
+    ];
     this.unusedCurrencyList = [
       {
         isoCode: 'LTL'
@@ -107,7 +122,7 @@ export class AltCurrencyPage {
       .then(lastUsedAltCurrency => {
         this.lastUsedAltCurrencyList = lastUsedAltCurrency
           ? lastUsedAltCurrency
-          : [];
+          : this.defaultCurrencyList;
       })
       .catch(err => {
         this.logger.error(err);

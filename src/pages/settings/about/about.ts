@@ -54,7 +54,7 @@ export class AboutPage {
 
   public openExternalLink(): void {
     const url =
-      'https://github.com/bitpay/' +
+      'https://github.com/moresats/' +
       this.appProvider.info.gitHubRepoName +
       '/tree/' +
       this.appProvider.info.commitHash +
@@ -64,7 +64,7 @@ export class AboutPage {
     const message = this.translate.instant(
       'You can see the latest developments and contribute to this open source app by visiting our project on GitHub.'
     );
-    const okText = this.translate.instant('Open GitHub');
+    const okText = this.translate.instant('Open');
     const cancelText = this.translate.instant('Go Back');
     this.externalLinkProvider.open(
       url,

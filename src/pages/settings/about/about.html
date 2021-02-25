@@ -1,8 +1,7 @@
-<wide-header-page title="{{title}}">
+<wide-header-page title="MoreSats" translate>
   <div page-content>
     <ion-list class="bp-list">
-      <ion-item-divider (tap)="countReleaseHeaderTaps($event)">{{'Release information'| translate}}</ion-item-divider>
-      <button ion-item (click)="wipeBitPayAccounts()">
+      <button ion-item (click)="openExternalLink()">
         <ion-icon class="item-img icon-settings" name="ios-download-outline" item-start></ion-icon>
         <span class="main-label" translate>Version</span>
         <ion-note item-end>
@@ -10,7 +9,7 @@
         </ion-note>
       </button>
 
-      <button ion-item>
+      <button ion-item (click)="openExternalLink()">
         <ion-icon class="item-img icon-settings" name="logo-github" item-start></ion-icon>
         <span class="main-label">Commit Hash</span>
         <ion-note item-end>

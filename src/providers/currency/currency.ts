@@ -30,7 +30,7 @@ export class CurrencyProvider {
   constructor() {
     this.coinOpts = availableCoins;
     this.availableTokens = Object.values(TokenOpts);
-    this.availableCoins = Object.keys(this.coinOpts) as Coin[];
+    this.availableCoins = ['btc'] as Coin[];
     for (const opts of Object.values(this.coinOpts)) {
       const { paymentInfo, coin } = opts;
       const {
@@ -77,7 +77,7 @@ export class CurrencyProvider {
 
   getAvailableChains(): string[] {
     return _.uniq(
-      _.map(Object.values(this.coinOpts), (opts: CoinOpts) =>
+      _.map(Object.values(this.coinOpts).filter(({coin}) => this.availableCoins.includes(coin as Coin)), (opts: CoinOpts) =>
         opts.chain.toLowerCase()
       )
     );

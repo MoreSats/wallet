@@ -32,7 +32,7 @@
           {{appVersion}}
         </ion-note>
       </button>
-      
+
       <button ion-item (click)="openThemePage()">
         <ion-icon class="item-img icon-settings ionic-icon" name="ios-color-palette" item-start></ion-icon>
         <ion-label>
@@ -52,18 +52,6 @@
         </ion-label>
         <ion-note *ngIf="selectedAlternative" item-end>
           {{ selectedAlternative.name }}
-        </ion-note>
-      </button>
-
-      <button ion-item (click)="openLanguagePage()">
-        <ion-icon class="item-img icon-settings" item-start>
-          <img src="assets/img/settings-icons/icon-language.svg" />
-        </ion-icon>
-        <ion-label>
-          <span class="main-label" translate>Language</span>
-        </ion-label>
-        <ion-note *ngIf="currentLanguageName" item-end>
-          {{ currentLanguageName }}
         </ion-note>
       </button>
 
@@ -92,23 +80,13 @@
         <span class="main-label" translate>Notifications</span>
       </button>
 
-      <ion-item class="align-with-button">
-        <ion-icon class="item-img icon-settings ionic-icon" name="md-eye" item-start></ion-icon>
-        <ion-label>
-          <div class="main-label">
-            {{'Show Portfolio Value' | translate}}
-          </div>
-        </ion-label>
-        <ion-toggle [(ngModel)]="showTotalBalance" (ionChange)="toggleShowBalanceFlag()"></ion-toggle>
-      </ion-item>
-
       <ion-item-divider *ngIf="walletsGroups && walletsGroups[0]">
         {{ 'Crypto Wallets & Keys' | translate }}
         <button class="reorder-option" ion-button item-end clear *ngIf="!showReorder && walletsGroups?.length > 1" (click)="reorder()">
           <img src="assets/img/sort.svg">
         </button>
         <button class="reorder-option" ion-button item-end clear *ngIf="showReorder" (click)="reorder()">
-          {{'Done' | translate}}
+          {{'Ok' | translate}}
         </button>
       </ion-item-divider>
 
@@ -181,10 +159,6 @@
       <button ion-item detail-none class="create-button" *ngIf="walletsGroups && walletsGroups[0]" (click)="goToAddView()">
         {{ 'Create or Import a Key' | translate }}
       </button>
-
-      <ion-item-divider *ngIf="cardServices && cardServices[0]">
-        {{ 'Cards' | translate }}
-      </ion-item-divider>
 
       <div *ngIf="isCordova && !isCopay && showBitPayCard && bitpayCardItems?.length">
         <ion-list>

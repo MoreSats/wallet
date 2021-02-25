@@ -1,0 +1,116 @@
+msgid "Open"
+msgstr "Otevřít"
+
+msgid "Go Back"
+msgstr "Zpět"
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "Help and support information is available at the website."
+msgstr "Nápověda a podpora je dostupná na našich stránkách."
+
+msgid "About MoreSats"
+msgstr "O MoreSats aplikaci"
+
+msgid "Open GitHub Project"
+msgstr "Otevřít GitHub projekt"
+
+msgid "You can see the latest developments and contribute to this open source app by visiting our project on GitHub."
+msgstr "Na našem GitHubu můžete aktuální zdrojové kody a přispívat k vývoji aplikace."
+
+msgid "Version"
+msgstr "Verze"
+
+msgid "Send Feedback"
+msgstr "Pošli zpětnou vazbu"
+
+msgid "Session Log"
+msgstr "Logy"
+
+msgid "Advanced"
+msgstr "Pokročilé nastavení"
+
+msgid "Reset All Settings"
+msgstr "Obnovit výchozí nastavení"
+
+msgid "Do you want to reset all settings to default value?"
+msgstr "Opravdu chcete vrátit všechny nastavení do výchozího stavu?"
+
+msgid "Wallets"
+msgstr "Peněženky"
+
+msgid "Needs Backup"
+msgstr "Chybí záloha"
+
+msgid "Before retrieving your wallets addresses, it's recommended that you first write down your recovery phrase and store it securely so that your wallets can be recovered in the case your device was lost or stolen."
+msgstr "Než začnete peneženku používat je důležité zapsat si záložní frázi na papír a bezpečně jí nekam uložit. Je to jedinný způsob jak obnovit přístup k této peněžence pokud ztratíte toto zařízení nebo odinstalujete aplikaci."
+
+msgid "Backup now"
+msgstr "Zálohovat nyní"
+
+msgid "{walletsGroupLength} Wallet"
+msgstr "{walletsGroupLength} Peněženka"
+
+msgid "{walletsGroupLength} Wallets"
+msgstr "{walletsGroupLength} Peněženek"
+
+msgid "Create or Import a Key"
+msgstr "Vytvořit nový nebo nahrát klíč"
+
+msgid "Terms of Use"
+msgstr "Všeobecné obchodní podmínky"
+
+msgid "View Wallet Terms of Use"
+msgstr "Zobrazit všeobecné obchodní podmínky"
+
+msgid "Share"
+msgstr "Sdílet"
+
+msgid "Help & Support"
+msgstr "Nápověda a podpora"
+
+msgid "About {{ appName }}"
+msgstr "O {{ appName }} aplikaci"
+
+msgid "Use Basic QR Code"
+msgstr "Jednoduchý QR"
+
+msgid "Bitcoin Network Fee Policy"
+msgstr "Poplatky sítě Bitcoin"
+
+msgid "Address Book"
+msgstr "Adresář"
+
+msgid "Crypto Wallets & Keys"
+msgstr "Peneženky & Klíče"
+
+msgid "Notifications"
+msgstr "Notifikace"
+
+msgid "Biometric"
+msgstr "Biometrický"
+
+msgid "Disabled"
+msgstr "Vypnuto"
+
+msgid "Lock App"
+msgstr "Zámek"
+
+msgid "Display Currency"
+msgstr "Výchozí měna"
+
+msgid "Theme"
+msgstr "Styl zobrazení"
+
+msgid "General"
+msgstr "Obecné"
+
+msgid "Settings"
+msgstr "Nastavení"
+
+msgid "System Default"
+msgstr "Podle systému"
+
+msgid "Light Mode"
+msgstr "Světlý"

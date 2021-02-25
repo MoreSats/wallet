@@ -1,11 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
-import { NavController, Slides } from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {NavController, Slides} from 'ionic-angular';
 
 // Providers
-import { ActionSheetProvider } from '../../../providers/action-sheet/action-sheet';
-import { ConfigProvider } from '../../../providers/config/config';
-import { Logger } from '../../../providers/logger/logger';
-import { PlatformProvider } from '../../../providers/platform/platform';
+import {ActionSheetProvider} from '../../../providers/action-sheet/action-sheet';
+import {ConfigProvider} from '../../../providers/config/config';
+import {Logger} from '../../../providers/logger/logger';
+import {PlatformProvider} from '../../../providers/platform/platform';
 import {
   BwcErrorProvider, ErrorsProvider,
   OnGoingProcessProvider,
@@ -14,9 +14,9 @@ import {
 } from '../../../providers';
 
 // Pages
-import { ImportWalletPage } from '../../../pages/add/import-wallet/import-wallet';
-import { SelectCurrencyPage } from '../../../pages/add/select-currency/select-currency';
-import { LockMethodPage } from '../../../pages/onboarding/lock-method/lock-method';
+import {ImportWalletPage} from '../../../pages/add/import-wallet/import-wallet';
+import {SelectCurrencyPage} from '../../../pages/add/select-currency/select-currency';
+import {LockMethodPage} from '../../../pages/onboarding/lock-method/lock-method';
 import {RecoveryKeyPage} from "../recovery-key/recovery-key";
 import {TranslateService} from "@ngx-translate/core";
 
@@ -73,7 +73,6 @@ export class FeatureEducationPage {
 
   public createWallet(): void {
     this.onGoingProcessProvider.set('creatingWallet');
-    debugger;
     this.profileProvider
         .createMultipleWallets(['btc'], [])
         .then(async wallets => {
@@ -126,6 +125,6 @@ export class FeatureEducationPage {
       name,
       params: this.params
     };
-    this.navCtrl.push(LockMethodPage, { nextView });
+    this.navCtrl.push(LockMethodPage, {nextView});
   }
 }

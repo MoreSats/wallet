@@ -405,10 +405,7 @@ export class SettingsPage {
 
   public openHelpExternalLink(): void {
     this.analyticsProvider.logEvent('help', {});
-    const url =
-      this.appName == 'Copay'
-        ? 'https://github.com/bitpay/copay/issues'
-        : 'https://help.bitpay.com/bitpay-app';
+    const url = 'https://moresats.cz/#help'
     const optIn = true;
     const title = null;
     const message = this.translate.instant(
@@ -504,7 +501,7 @@ export class SettingsPage {
   }
 
   public openPrivacyPolicy() {
-    const url = 'https://bitpay.com/about/privacy';
+    const url = 'https://moresats.cz/privacy.html';
     const optIn = true;
     const title = null;
     const message = this.translate.instant('View Privacy Policy');
@@ -521,7 +518,7 @@ export class SettingsPage {
   }
 
   public openTermsOfUse() {
-    const url = 'https://bitpay.com/legal/terms-of-use/#wallet-terms-of-use';
+    const url = 'https://moresats.cz/vop.html';
     const optIn = true;
     const title = null;
     const message = this.translate.instant('View Wallet Terms of Use');
