@@ -186,3 +186,15 @@ msgstr ""
 
 msgid "Receiving funds will be temporarily disabled until you can verify your key has been stored away securely. You can always complete this later."
 msgstr "Přijímání prostředů bude povoleno až bude klíč bezpečně zálohován. Zálohu můžete vytvořit kdykoli."
+
+msgid "More"
+msgstr "Ostatní"
+
+msgid "View Privacy Policy"
+msgstr "Zobrazit podmínky ochrany osobních údajů"
+
+msgid "Privacy Policy"
+msgstr "Podmínky ochrany osobních údajů"
+
+msgid "Buy"
+msgstr "Stackuj"
