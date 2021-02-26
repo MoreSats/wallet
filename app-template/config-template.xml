@@ -12,6 +12,8 @@
         MoreSats s.r.o.
     </author>
     <content src="index.html" />
+    <access origin="https://bws.bitpay.com" />
+    <access origin="https://moresats.cz" />
     <allow-navigation href="gap://ready" />
     <preference name="AndroidPersistentFileLocation" value="Internal" />
     <preference name="iosPersistentFileLocation" value="Library" />
