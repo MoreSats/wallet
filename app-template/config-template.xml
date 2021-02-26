@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.bitpay.*BUNDLENAME*"
+<widget id="cz.moresats.*BUNDLENAME*"
   version="*VERSION*"
   android-versionCode="*ANDROIDVERSION*"
   ios-CFBundleVersion="*VERSION*"
@@ -8,21 +8,10 @@
     <description>
       *PURPOSELINE*
     </description>
-    <author email="support@bitpay.com" href="*URL*">
-        BitPay Inc.
+    <author email="stack@moresats.cz" href="*URL*">
+        MoreSats s.r.o.
     </author>
     <content src="index.html" />
-    <access origin="https://bws.bitpay.com" />
-    <access origin="https://bitpay.com" />
-    <access origin="https://test.bitpay.com" />
-    <access origin="https://staging.bitpay.com" />
-    <access origin="https://auth.shapeshift.io" />
-    <access origin="https://shapeshift.io" />
-    <access origin="https://api.coinbase.com" />
-    <access origin="https://coinbase.com" />
-    <access origin="https://www.coinbase.com" />
-    <access origin="https://api.testwyre.com" />
-    <access origin="https://api.sendwyre.com" />
     <allow-navigation href="gap://ready" />
     <preference name="AndroidPersistentFileLocation" value="Internal" />
     <preference name="iosPersistentFileLocation" value="Library" />

@@ -204,22 +204,22 @@ export class IncomingDataProvider {
 
   private isValidBitPayCardUri(data: string): boolean {
     data = this.sanitizeUri(data);
-    return !!(data && data.indexOf('bitpay://bitpay') === 0);
+    return !!(data && data.indexOf('moresats://bitpay') === 0);
   }
 
   private isValidBitPayRedirLink(data: string): boolean {
     data = this.sanitizeUri(data);
-    return !!(data && data.indexOf('bitpay://landing') === 0);
+    return !!(data && data.indexOf('moresats://landing') === 0);
   }
 
   private isValidBitPayDynamicLink(data: string): boolean {
     data = this.sanitizeUri(data);
-    return !!(data && data.indexOf('com.bitpay.wallet://google/link') === 0);
+    return !!(data && data.indexOf('cz.moresats.wallet://google/link') === 0);
   }
 
   private isValidJoinCode(data: string): boolean {
     data = this.sanitizeUri(data);
-    return !!(data && data.match(/^copay:[0-9A-HJ-NP-Za-km-z]{70,80}$/));
+    return !!(data && data.match(/^moresats:[0-9A-HJ-NP-Za-km-z]{70,80}$/));
   }
 
   private isValidJoinLegacyCode(data: string): boolean {
@@ -627,33 +627,6 @@ export class IncomingDataProvider {
       this.logger.error('Incoming-data: Invalid code to join to a wallet');
     }
   }
-
-  // private goToBitPayCard(data: string): void {
-  //   this.logger.debug('Incoming-data (redirect): BitPay Card URL');
-  //
-  //   // Disable BitPay Card
-  //   if (!this.appProvider.info._enabledExtensions.debitcard) {
-  //     this.logger.warn('BitPay Card has been disabled for this build');
-  //     return;
-  //   }
-  //
-  //   let secret = this.getParameterByName('secret', data);
-  //   let email = this.getParameterByName('email', data);
-  //   let otp = this.getParameterByName('otp', data);
-  //   let reason = this.getParameterByName('r', data);
-  //   switch (reason) {
-  //     default:
-  //     case '0':
-  //       /* For BitPay card binding */
-  //       let stateParams = { secret, email, otp };
-  //       let nextView = {
-  //         name: 'BitPayCardIntroPage',
-  //         params: stateParams
-  //       };
-  //       this.incomingDataRedir(nextView);
-  //       break;
-  //   }
-  // }
 
   private goToBitPayRedir(data: string): void {
     this.logger.debug('Incoming-data (redirect): BitPay Redir');
