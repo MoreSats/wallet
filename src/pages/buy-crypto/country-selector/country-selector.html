@@ -22,9 +22,6 @@
     </ion-toolbar>
   </expandable-header>
 
-  <ion-item class="search-container" no-lines padding>
-    <ion-input class="search-wrapper" placeholder="{{'Search country' | translate}}" [(ngModel)]="searchedCountry" (ngModelChange)="findCountry()"></ion-input>
-  </ion-item>
   <ion-list class="bp-list">
     <ion-item *ngFor="let country of commonCountriesList" (click)="save(country)">
       {{ country.name }}
@@ -44,10 +41,4 @@
       </ion-note>
     </ion-item>
   </ion-list>
-
-  <ion-spinner class="loading" *ngIf="!countryList[0]" name="crescent"></ion-spinner>
-
-  <ion-infinite-scroll (ionInfinite)="loadCountries($event)">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
 </ion-content>

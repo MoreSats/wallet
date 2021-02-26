@@ -198,3 +198,75 @@ msgstr "Podmínky ochrany osobních údajů"
 
 msgid "Buy"
 msgstr "Stackuj"
+
+msgid "Receive"
+msgstr "Přijmi"
+
+msgid "Send"
+msgstr "Odešli"
+
+msgid "Address"
+msgstr "Adresa"
+
+msgid "CLOSE"
+msgstr "ZAVŘÍT"
+
+msgid "Close"
+msgstr "Zavřít"
+
+msgid "Select Coin"
+msgstr "Vyber Coin"
+
+msgid "Select wallet to deposit to"
+msgstr "Peněženka"
+
+msgid "Select Currency"
+msgstr "Vybrat měnu"
+
+msgid "Country selector"
+msgstr "Vyberte zemi"
+
+msgid "Country"
+msgstr "Země"
+
+msgid "Amount"
+msgstr "Částka"
+
+msgid "Deposit to"
+msgstr "Odeslat na"
+
+msgid "Payment Method"
+msgstr "Platební metoda"
+
+msgid "View Offers"
+msgstr "Platební údaje"
+
+msgid "Order Summary"
+msgstr "Stackovací objednávka"
+
+msgid "Select Payment Method"
+msgstr "Vyberte způsob platby"
+
+msgid "SEPA Bank Transfer"
+msgstr "SEPA bankovní převod"
+
+msgid "Local Bank Transfer"
+msgstr "Bankovní převod"
+
+msgid "Card"
+msgstr "Platební karta"
+
+msgid "Payment method updated"
+msgstr "Byla upravena platební metoda"
+
+msgid "Regular bank transfers are supported just in Czech Republic."
+msgstr "Obyčejný bankonví převod je možný jen vrámci Česka."
+
+msgid "Regular bank transfers can be used only for Czech crowns."
+msgstr "Obyčejným bankonvím převodem je možné platit pouze v korunách."
+
+msgid "GOT IT"
+msgstr "CHÁPU"
+
+msgid "Edit"
+msgstr "Upravit"

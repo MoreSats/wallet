@@ -6,7 +6,6 @@ import * as _ from 'lodash';
 // Providers
 import { AnalyticsProvider } from '../../../providers/analytics/analytics';
 import { AppProvider } from '../../../providers/app/app';
-import { BuyCryptoProvider } from '../../../providers/buy-crypto/buy-crypto';
 import { ConfigProvider } from '../../../providers/config/config';
 import { Coin, CurrencyProvider } from '../../../providers/currency/currency';
 import { ExternalLinkProvider } from '../../../providers/external-link/external-link';
@@ -71,7 +70,6 @@ export class CryptoOffersPage {
   constructor(
     private analyticsProvider: AnalyticsProvider,
     private appProvider: AppProvider,
-    private buyCryptoProvider: BuyCryptoProvider,
     private logger: Logger,
     private onGoingProcessProvider: OnGoingProcessProvider,
     private navParams: NavParams,
@@ -105,19 +103,6 @@ export class CryptoOffersPage {
 
   ionViewWillEnter() {
     this.setFiatCurrency();
-    this.offers.simplex.showOffer = this.buyCryptoProvider.isPaymentMethodSupported(
-      'simplex',
-      this.paymentMethod,
-      this.coin,
-      this.currency
-    );
-    this.offers.wyre.showOffer =
-      this.buyCryptoProvider.isPaymentMethodSupported(
-        'wyre',
-        this.paymentMethod,
-        this.coin,
-        this.currency
-      ) && !this.navParams.data.isPromotionActiveForCountry; // TODO: We temporarily remove Wyre from European Union countries. When the Simplex promotion ends we have to remove this condition
     if (this.offers.simplex.showOffer) this.getSimplexQuote();
     if (this.offers.wyre.showOffer) this.getWyreQuote();
   }

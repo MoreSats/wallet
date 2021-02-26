@@ -13,8 +13,7 @@ export interface PaymentMethod {
   label: any;
   method: string;
   imgSrc: string;
-  simplexSupport: boolean;
-  wyreSupport: boolean;
+  supportedFiat: string[];
   enabled: boolean;
 }
 @Component({
@@ -28,7 +27,6 @@ export class CryptoPaymentMethodPage {
   public useAsModal: boolean;
   public isIOS: boolean;
   private coin: string;
-  private country;
   private currency: string;
 
   constructor(
@@ -40,7 +38,6 @@ export class CryptoPaymentMethodPage {
     public themeProvider: ThemeProvider
   ) {
     this.coin = this.navParams.data.coin;
-    this.country = this.navParams.data.selectedCountry;
     this.currency = this.navParams.data.currency;
     this.methods = this.buyCryptoProvider.paymentMethodsAvailable;
   }
@@ -48,44 +45,14 @@ export class CryptoPaymentMethodPage {
   ionViewDidLoad() {
     this.logger.info('Loaded: CryptoPaymentMethodPage');
     this.methods = _.pickBy(this.methods, m => {
-      return (
-        m.enabled &&
-        (this.buyCryptoProvider.isPaymentMethodSupported(
-          'simplex',
-          m,
-          this.coin,
-          this.currency
-        ) ||
-          (this.buyCryptoProvider.isPaymentMethodSupported(
-            'wyre',
-            m,
-            this.coin,
-            this.currency
-          ) &&
-            !this.navParams.data.isPromotionActiveForCountry)) && // TODO: We temporarily remove Wyre from European Union countries. When the Simplex promotion ends we have to remove this condition
-        (m.method != 'sepaBankTransfer' ||
-          (m.method == 'sepaBankTransfer' && this.country.EUCountry))
-      );
+      return m.enabled && m.supportedFiat.includes(this.currency);
     });
   }
 
   ionViewWillEnter() {
     this.useAsModal = this.navParams.data.useAsModal;
     if (!this.methodSelected)
-      this.methodSelected = this.navParams.data.paymentMethod || 'creditCard';
-  }
-
-  public showExchange(exchange: string, paymentMethod) {
-    if (this.navParams.data.isPromotionActiveForCountry && exchange == 'wyre') {
-      // TODO: We temporarily remove Wyre from European Union countries. When the Simplex promotion ends we have to remove this condition
-      return false;
-    }
-    return this.buyCryptoProvider.isPaymentMethodSupported(
-      exchange,
-      paymentMethod,
-      this.coin,
-      this.currency
-    );
+      this.methodSelected = this.navParams.data.paymentMethod || 'sepaBankTransfer';
   }
 
   public goToOrderSummary(): void {

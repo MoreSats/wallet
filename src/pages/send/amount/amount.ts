@@ -16,7 +16,7 @@ import {
 import * as _ from 'lodash';
 
 // Providers
-import { ActionSheetProvider, IABCardProvider } from '../../../providers';
+import { ActionSheetProvider, IABCardProvider, BuyCryptoProvider } from '../../../providers';
 import { Config, ConfigProvider } from '../../../providers/config/config';
 import { Coin, CurrencyProvider } from '../../../providers/currency/currency';
 import { ElectronProvider } from '../../../providers/electron/electron';
@@ -27,7 +27,6 @@ import { Logger } from '../../../providers/logger/logger';
 import { PlatformProvider } from '../../../providers/platform/platform';
 import { ProfileProvider } from '../../../providers/profile/profile';
 import { RateProvider } from '../../../providers/rate/rate';
-import { SimplexProvider } from '../../../providers/simplex/simplex';
 import { TxFormatProvider } from '../../../providers/tx-format/tx-format';
 
 // Pages
@@ -125,7 +124,7 @@ export class AmountPage {
     private profileProvider: ProfileProvider,
     private navCtrl: NavController,
     private iabCardProvider: IABCardProvider,
-    private simplexProvider: SimplexProvider,
+    private buyCryptoProvider: BuyCryptoProvider,
     private formBuilder: FormBuilder,
     private translate: TranslateService
   ) {
@@ -736,7 +735,7 @@ export class AmountPage {
         ? this.fiatCode
         : this.isSupportedFiat(isoCode)
         ? isoCode
-        : 'USD';
+        : 'CZK';
 
     this.quoteForm = this.formBuilder.group({
       amount: [
@@ -745,18 +744,15 @@ export class AmountPage {
       ],
       altCurrency: [this.altCurrencyInitial, [Validators.required]]
     });
-    this.altCurrenciesToShow = ['USD', 'EUR'];
-    this.altCurrenciesToShow2 = [];
+    this.supportedFiatAltCurrencies = this.buyCryptoProvider.supportedFiat;
 
-    if (this.altCurrenciesToShow.indexOf(this.altCurrencyInitial) < 0)
-      this.altCurrenciesToShow.push(this.altCurrencyInitial);
+    this.altCurrenciesToShow = this.supportedFiatAltCurrencies;
+    this.altCurrenciesToShow2 = [];
 
     this.selectOptions = {
       title: this.translate.instant('Select Currency'),
       cssClass: 'buy-crypto-currency-' + this.altCurrenciesToShow.length
     };
-
-    this.supportedFiatAltCurrencies = this.simplexProvider.getSupportedFiatAltCurrencies();
 
     this.supportedFiatAltCurrencies.forEach((currency: string) => {
       if (this.altCurrenciesToShow.indexOf(currency) < 0)
@@ -769,9 +765,7 @@ export class AmountPage {
   }
 
   private isSupportedFiat(isoCode: string): boolean {
-    return (
-      this.simplexProvider.getSupportedFiatAltCurrencies().indexOf(isoCode) > -1
-    );
+    return this.buyCryptoProvider.supportedFiat.includes(isoCode.toUpperCase());
   }
 
   public altCurrencyChange(): void {

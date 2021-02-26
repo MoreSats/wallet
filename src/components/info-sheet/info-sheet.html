@@ -235,11 +235,11 @@
 
     <info-sheet-template *ngSwitchCase="'payment-method-changed'" type="warning">
       <span sheet-title-text translate>Payment method updated</span>
-      <span *ngIf="params.reason == 'coin'" sheet-text>
-        {{'Only the payment methods supported to buy {coin} with {currency} will be shown.' | translate: {coin: params.coin | uppercase, currency:params.currency | uppercase} }}
+      <span *ngIf="params.reason == 'currency'" sheet-text>
+        {{'Regular bank transfers can be used only for Czech crowns.' | translate: {coin: params.coin | uppercase, currency:params.currency | uppercase} }}
       </span>
       <span *ngIf="params.reason == 'country'" sheet-text>
-        {{'SEPA Bank Transfer purchases are not supported outside the European Union.' | translate: {coin: params.coin | uppercase, currency:params.currency | uppercase} }}
+        {{'Regular bank transfers are supported just in Czech Republic.' | translate: {coin: params.coin | uppercase, currency:params.currency | uppercase} }}
       </span>
       <span sheet-button-text translate>GOT IT</span>
     </info-sheet-template>
